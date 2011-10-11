@@ -75,11 +75,42 @@ if( isset($_GET['src']) ) {
 		article{
 			background:		#FFF;	
 			width:			80%;
-			padding:		1em;
+			padding:		1.5em;
 			border:			1px solid #EFEFE;
 			margin:			2em auto;
-			box-shadow:		0 0 10px rgba(0,0,0,0.3);
-
+			position:			relative;
+			background:			#FFF;
+			box-shadow:			0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+			-moz-border-radius:	2px; 
+			border-radius:		2px;
+		}
+		article:before,
+		article:after{
+			content:			'';
+			position:			absolute; 
+			z-index:			-2;
+			bottom:				15px;
+			left:				10px;
+			width:				50%;
+			height:				20%;
+			max-width:			300px;
+			-webkit-box-shadow:	0 15px 10px rgba(0, 0, 0, 0.7);   
+			-moz-box-shadow:	0 15px 10px rgba(0, 0, 0, 0.7);
+			box-shadow:			0 15px 10px rgba(0, 0, 0, 0.7);
+			-webkit-transform:	rotate(-3deg);    
+			-moz-transform:		rotate(-3deg);   
+			-ms-transform:		rotate(-3deg);   
+			-o-transform:		rotate(-3deg);
+			transform:			rotate(-3deg);
+		}
+		article::after {
+			right:				10px; 
+			left:				auto;
+			-webkit-transform:	rotate(3deg);   
+			-moz-transform:		rotate(3deg);  
+			-ms-transform:		rotate(3deg);  
+			-o-transform:		rotate(3deg);
+			transform:			rotate(3deg);
 		}
 		footer{
 			font-size:		0.7em;
