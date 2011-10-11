@@ -20,7 +20,7 @@ if( isset($_GET['src']) ) {
 		$text	=	fread($file, $fSize);
 		fclose($file);
 
-		$title 	=	'Markdown of "'.$src.'"';
+		$title 	=	'Markdown of<br /><code>'.$src.'</code>';
 		$html	=	Markdown($text);
 
 	} else {
@@ -40,20 +40,23 @@ if( isset($_GET['src']) ) {
 <html>
 
 <head>
-	<title><?php echo $title ?></title>
+	<title>Markdown Viewer</title>
 	<style>
 		body{
 			font-family:	Helvetica, Verdana, serif;
 			margin:			0;
 			padding:		0;
+			background:		#EFEFEF;
 		}
 		header{
 			border-bottom:	1px solid #CCC;
 			background:		#333;
+			box-shadow:		0 0 10px rgba(0,0,0,0.7);
 		}
 		header p{
-			font-size:		2em;
-			line-height:	2em;
+			font-size:		1.6em;
+			padding:		30px 5px;
+			line-height:	1em;
 			margin:			0;
 			text-align:		center;
 			color:			#EFEFEF;
@@ -66,12 +69,32 @@ if( isset($_GET['src']) ) {
 					echo 'display: none;';
 				endif;
 			?>
+			font-size:		0.4em;
+			margin-top:		-2em;
 		}
 		article{
+			background:		#FFF;	
 			width:			80%;
 			padding:		1em;
-			border:			1px solid #CCC;
+			border:			1px solid #EFEFE;
 			margin:			2em auto;
+			box-shadow:		0 0 10px rgba(0,0,0,0.3);
+
+		}
+		footer{
+			font-size:		0.7em;
+			border-top		1px solid #CCC;
+			text-align:		center;
+		}
+		footer span{
+			font-size:		2em;
+			font-family:	serif;
+			padding-top:	-2em;
+			line-height:	2em	;
+			margin:			0 0.3em;
+			position:		relative;
+			vertical-align:	baseline;
+			top: -0.7em;
 		}
 	</style>
 </head>
@@ -87,7 +110,8 @@ if( isset($_GET['src']) ) {
 	</article>
 
 	<footer>
-		
+		<p><a href="https://github.com/WolfieZero/Markdown-Viewer-PHP">Markdown Viewer PHP</a> by <a href="http://wolfiezero.com/">Neil Sweeney</a> is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a></p>
+		<p><a href="http://michelf.com/projects/php-markdown/">PHP Markdown</a> is Copyright &copy; 2004-2009 <a href="http://michelf.com/">Michel Fortin</a> <span>&amp;</span> <a href="http://daringfireball.net/projects/markdown/">Markdown</a> is Copyright &copy; 2003-2006 <a href="http://daringfireball.net/">John Gruber</a>
 	</footer>
 
 </body>
