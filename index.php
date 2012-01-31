@@ -12,15 +12,11 @@ if( isset($_GET['src']) ) {
 	require($folder.'/markdown.php');
 
 	$src	=	$_GET['src'];
-	$file	=	@fopen($src, 'r');
+    $text	=	file_get_contents($src);
 
-	if( $file !== false ){
+	if( $text !== false ){
 
-		$fSize	=	filesize($src);
-		$text	=	fread($file, $fSize);
-		fclose($file);
-
-		$title 	=	'Markdown of<br /><code>'.$src.'</code>';
+		$title 	=	'<code>'.$src.'</code>';
 		$html	=	Markdown($text);
 
 	} else {

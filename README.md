@@ -25,6 +25,10 @@ Sources
 Changelog
 ---------
 
+**v1.1 (31 January 2011)**
+
+- Removed `fopen()`, `fread()`, `fclose()` and using `file_get_contents()` instead (thanks to [Tom Leathrum](http://cs.jsu.edu/~leathrum/))
+
 **v1 (11 October 2011)**
 
 - First release
