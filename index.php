@@ -1,10 +1,11 @@
 <?php
 
+if($_FILES){
 $file_name = $_FILES['filename']['name'];
 $file_tmp  = $_FILES['filename']['tmp_name'];
 $file_type = $_FILES['filename']['type'];
 $file_size = $_FILES['filename']['size'];
-
+}
 if( isset($_GET['adv']) ) {
 	$folder	= 'php-markdown-extra-1.2.4';
 
@@ -22,9 +23,9 @@ if( $src_arg != null ) {
 	require($folder.'/markdown.php');
 
 	$src	=	$src_arg;
-    $text	=	file_get_contents($src);
+        $text   =	@file_get_contents($src);
 
-	if( $text !== false ){
+	if( $text != false ){
 
 		$title 	=	'<code>'.$src.'</code>';
 		$html	=	Markdown($text);
@@ -34,14 +35,14 @@ if( $src_arg != null ) {
 		$title 	=	'Could not find "'.$src.'"';
 		$html	=	'<p>The file could not be found; please check that the file directory is correct</p>';
 
-	}
+                }
 
 } 
 else 
-if($file_tmp != null && $file_tmp != '') 
+if(isset($file_tmp) && $file_tmp != '') 
 {
 	require($folder.'/markdown.php');
-	$title 	=	'<code>'.$file_tmp.'</code>';
+	$title 	=	'<code>'.$file_name.'</code>';
 	$text	= 	file_get_contents($file_tmp);
 	$html	=	Markdown($text);
 }
@@ -51,7 +52,8 @@ else {
 	$html	= 	'<h1>'.$title.'</h1>'.
 				'<p>Please make sure you have the query <code>src=FOLDER/FILE</code> in the URL</p>';
 }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -168,7 +170,7 @@ else {
 
 	<div class='fileuploader'>
 		<span style='font-size: small;'>Or simply, select your file from your local path and click 'Submit'..</span>
-		<form name='form1' method='post' enctype="multipart/form-data" action='index.php?src=' >
+		<form name='form1' method='post' enctype="multipart/form-data" action='' >
 			<input type='file' name='filename'>
 			<input type='submit' value='Submit'>
 		</form>
