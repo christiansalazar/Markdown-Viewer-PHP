@@ -7,23 +7,30 @@ A wrapper for the [PHP Markdown project](http://michelf.com/projects/php-markdow
 Using Markdown Viewer PHP
 -------------------------
 
-Upload the contents to your PHP server; be it local or remote but where ever you mostly write your Markdown. Then hit the URL with the querystring "src=[FOLDER/FILE]", where [FOLDER/FILE] is replace it wiht the path to your Markdown file.
+Way #1 - Select a file
+	In your browser open: 
+	http://localhost/Markdown-Viewer-PHP/index.php
+	next, click "Submit a File", and find your file next click "Submit", it will show you the file.
 
-So on my local Mac I have the hostname set to "markdown.view" so I can then hit my browser with:
-
-http://markdown.view/?src=/Users/me/Sites/Markdown-Viewer-PHP/README.md
-
-This then outputs this very file for me to view with all the Markdown formatting.
+Way #2 - Using a SRC Argument, example:
+	http://localhost/Markdown-Viewer-PHP/index.php?src=MyLocalPath/Markdown-Viewer-PHP/README.md
 
 
 Sources
 ---------------------
+- [PHP Markdown](https://github.com/christiansalazar/Markdown-Viewer-PHP)  (added: upload file feature)
 - [PHP Markdown](http://michelf.com/projects/php-markdown/)
 - [Original Markdown Project](http://daringfireball.net/projects/markdown/)
 
 
 Changelog
 ---------
+
+June 2012
+	https://github.com/devpilot		(fix uploader issues)
+
+May 2012
+	https://github.com/christiansalazar (added: Upload File Feature)
 
 **v1.1 (31 January 2011)**
 
